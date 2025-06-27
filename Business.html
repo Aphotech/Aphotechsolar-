@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aphotech Solar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #f0f4fb;
+      color: #333;
+    }
+
+    header {
+      background: #003366;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #fcd303;
+    }
+
+    .hero {
+      background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+      color: white;
+      padding: 100px 20px;
+      text-align: center;
+      animation: fadeIn 2s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero h2 {
+      font-size: 2.8rem;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+    }
+
+    .hero button {
+      padding: 12px 30px;
+      background: #fcd303;
+      border: none;
+      color: #003366;
+      font-weight: bold;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .hero button:hover {
+      background: #ffe600;
+    }
+
+    section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    section h2 {
+      margin-bottom: 40px;
+      font-size: 2.2rem;
+      color: #003366;
+    }
+
+    .services, .testimonials {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      width: 300px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .card h3 {
+      color: #003366;
+      margin-bottom: 10px;
+    }
+
+    .card i {
+      font-size: 30px;
+      color: #fcd303;
+      margin-bottom: 15px;
+    }
+
+    .contact-form {
+      max-width: 500px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    .contact-form button {
+      background: #003366;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    footer {
+      background: #003366;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .whatsapp-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #25D366;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 16px;
+      margin-top: 15px;
+      max-width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .whatsapp-button:hover {
+      background-color: #1ebc5e;
+    }
+
+    .whatsapp-button i {
+      margin-right: 10px;
+      font-size: 18px;
+    }
+
+    .floating-whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      padding: 12px 15px;
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      font-size: 24px;
+      z-index: 1001;
+      text-decoration: none;
+    }
+
+    .floating-whatsapp:hover {
+      background-color: #1ebc5e;
+    }
+
+    @media (max-width: 768px) {
+      .services, .testimonials {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero h2 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Aphotech Solar</h1>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Power Your Home With The Sun</h2>
+    <p>Clean. Reliable. Affordable. Energy solutions for a better tomorrow.</p>
+    <button onclick="scrollToSection('services')">Explore Services</button>
+  </section>
+
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="services">
+      <div class="card">
+        <i class="fas fa-solar-panel"></i>
+        <h3>Solar Panel Installation</h3>
+        <p>Professional setup of efficient solar systems customized to your needs.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-battery-full"></i>
+        <h3>Inverter & Battery</h3>
+        <p>Smart backup systems for uninterrupted power day and night.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-tools"></i>
+        <h3>Maintenance & Repairs</h3>
+        <p>We keep your system in top shape to ensure consistent performance.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About Aphotech</h2>
+    <p style="max-width: 700px; margin: 0 auto;">
+      At Aphotech Solar, we're passionate about empowering homes and businesses with clean energy.
+      With a commitment to innovation, affordability, and excellent customer service, we're lighting up Nigeria — one rooftop at a time.
+    </p>
+  </section>
+
+  <section id="testimonials">
+    <h2>What Our Customers Say</h2>
+    <div class="testimonials">
+      <div class="card">
+        <p>"Aphotech transformed my home power experience. No more blackouts!"</p>
+        <strong>- Mr. Oladele, Ibadan</strong>
+      </div>
+      <div class="card">
+        <p>"Their solar solution is saving me money every month. I recommend them!"</p>
+        <strong>- Mrs. Okon, Abuja</strong>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <div class="contact-form">
+      <form>
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Email Address" required />
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+    <a class="whatsapp-button" href="https://wa.me/2348165029912?text=Hello%20Aphotech%2C%20I%27m%20interested%20in%20your%20solar%20solutions" target="_blank">
+      <i class="fab fa-whatsapp"></i> Chat with us on WhatsApp
+    </a>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Aphotech Solar. All rights reserved.</p>
+    <p>Call us: 0816 502 9912 | Email: afobusiness1@gmail.com</p>
+  </footer>
+
+  <a class="floating-whatsapp" href="https://wa.me/2348165029912?text=Hello%20Aphotech%2C%20I%27m%20interested%20in%20your%20solar%20solutions" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script>
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+    }
+
+    document.querySelector('form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      alert('Thank you for contacting Aphotech Solar! We’ll get back to you shortly.');
+      this.reset();
+    });
+  </script>
+</body>
+</html>
